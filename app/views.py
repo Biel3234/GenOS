@@ -1,9 +1,13 @@
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView, DetailView
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import OrdemServico
 from .forms import OsForm
+
+from weasyprint import HTML
 
 class ListOS(ListView):
     model = OrdemServico
@@ -31,3 +35,14 @@ class UpdateOS(UpdateView):
     context_object_name = 'os'    
     template_name = 'os_pdf.html'
     success_url = reverse_lazy('listar')
+
+    def generate_pdf(request, pk):
+        os = OrdemServico.objects.all()
+        html = render_to_string('os_pdf.html', {"os": os})
+
+        pdf = HTML(string=html).write_pdf()
+
+        response = HttpResponse(pdf, content_type="application/pdf")
+        response["Content-Disposition"] = "inline; filename=os.pdf"
+
+        return response
