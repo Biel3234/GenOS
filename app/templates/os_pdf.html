@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        /* ================= HEADER ================= */
+        .header {
+            width: 100%;
+            background-color: #ffa500;
+            padding: 10px 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header img {
+            height: 75px;
+            width: auto;
+        }
+
+        .header-title {
+            text-align: center;
+            width: 100%;
+            margin-left: -70px; /* compensa o espaço do logo */
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 22px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .header-title h2 {
+            margin: 0;
+            font-size: 14px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        /* ================= CONTAINER ================= */
+        .container {
+            width: 100%;
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            background: #ffa500;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+
+        table td {
+            padding: 6px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .assinatura {
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .assinatura div {
+            margin-bottom: 50px;
+        }
+
+        .assinatura-line {
+            width: 200px;
+            border-top: 1px solid #000;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 40px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="{% static 'os/logo.png' %}" alt="Logo da Oficina">
+
+        <div class="header-title">
+            <h2>EDMOTOS</h2>
+            <h1>Ordem de Serviço</h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- Dados do Cliente -->
+        <div class="section">
+            <div class="section-title">Dados do Cliente</div>
+            <table>
+                <tr>
+                    <td><strong>Cliente:</strong> {{ os.cliente }}</td>
+                    <td><strong>Telefone:</strong> {{ os.telefone }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Moto:</strong> {{ os.moto }}</td>
+                    <td><strong>Placa:</strong> {{ os.placa }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Problema relatado -->
+        <div class="section">
+            <div class="section-title">Problema Relatado</div>
+            <table>
+                <tr>
+                    <td>{{ os.problema_relatado }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Serviços executados -->
+        <div class="section">
+            <div class="section-title">Serviços Executados</div>
+            <table>
+                <tr>
+                    <td>{{ os.servico_executado }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Valor Total</div>
+            <table>
+                <tr>
+                    <td><strong>Valor Total:</strong>{{ os.valor_total }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Informações -->
+        
+        <div class="section">
+            <div class="section-title">Responsaveis</div>
+            <table>
+                <tr>
+                    <td><strong>Mecanico reponsavel:</strong> {{ os.mecanico_responsavel }}</td>
+                    <td><strong>Atendente responsavel:</strong> {{ os.atendente_responsavel }}</td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Informações</div>
+            <table>
+                <tr>
+                    <td><strong>Data de criação:</strong> {{ os.data }}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Sistema de Gestão de OS - Gerado automaticamente
+    </div>
+
+</body>
+</html>
