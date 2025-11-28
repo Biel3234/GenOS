@@ -7,7 +7,8 @@
 </head>
 <body>
     {% for os in ordens %}
-    {{os}}
+    {{os}}  <button><a href="{% url 'baixar_pdf' os.id %}">Baixar PDF</a></button> 
+            <button><a href="{% url 'detalhar' os.id %}">Ver OS</a></button>
     <br>
     {% endfor %}
 </body>
