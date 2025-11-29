@@ -42,6 +42,12 @@ class UpdateOS(RequerLogin, UpdateView):
     template_name = 'os_pdf.html'
     success_url = reverse_lazy('listar')
 
+class DeleteOS(RequerLogin, DeleteView):
+    model = OrdemServico
+    context_object_name = 'ordens'
+    template_name = 'confirmar_delete_os.html'
+    success_url = reverse_lazy('listar')
+
 def home(request):
     return render(request, 'home.html')
 

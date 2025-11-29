@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Essa é a home
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Home - GenOS{% endblock %}
+
+{% block content %}
+<div class="card hero">
+    <h1>Bem-vindo ao GenOS</h1>
+    <p class="small">Gerencie ordens de serviço de forma simples e rápida.</p>
+
+    <div class="actions">
+        <a class="btn" href="{% url 'criar' %}">Criar Ordem de Serviço</a>
+        <a class="btn outline" href="{% url 'listar' %}">Ver Ordens</a>
+    </div>
+</div>
+{% endblock %}

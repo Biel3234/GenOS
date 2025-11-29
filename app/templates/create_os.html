@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Criar OS - GenOS{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Criar Ordem de Serviço</h2>
     <form action="{% url 'criar' %}" method="post">
         {% csrf_token %}
         {% for field in form %}
-        {{ field.label_tag }}
-        {{ field }}
-        <br>
+            <label>{{ field.label }}</label>
+            {{ field }}
         {% endfor %}
-        <button type="submit">Criar Ordem de Serviço</button>
+        <button class="btn" type="submit">Criar Ordem de Serviço</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

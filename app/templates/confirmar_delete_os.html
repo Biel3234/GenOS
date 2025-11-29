@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Confirmar Deleção - GenOS{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width:640px; margin:0 auto; text-align:center;">
+    <h2>Confirmar Deleção</h2>
+    <p class="small">Você tem certeza que deseja deletar a Ordem de Serviço <strong>#{{ object.id }}</strong> — <em>{{ object.cliente }} / {{ object.moto }}</em>?</p>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <a class="btn outline" href="{% url 'listar' %}">Cancelar</a>
+        <button type="submit" class="btn danger">Sim, deletar</button>
+    </form>
+</div>
+{% endblock %}

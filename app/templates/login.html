@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Login - GenOS{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width:480px; margin:0 auto;">
+    <h2>Login</h2>
     <form method="post" action="{% url 'logar' %}">{% csrf_token %}
-        <label>Username:</label>
+        <label>Username</label>
         <input type="text" name="nome" placeholder="Username" required>
-        <br>
-        <label>Password:</label>
+
+        <label>Senha</label>
         <input type="password" name="senha" placeholder="Password" required>
-        <br>
-        <button type="submit">Login</button>
+
+        <button class="btn" type="submit">Entrar</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

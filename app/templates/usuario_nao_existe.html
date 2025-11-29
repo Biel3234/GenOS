@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Usuário Não Encontrado{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width:640px; margin:0 auto; text-align:center;">
+    <h2>Usuário não encontrado</h2>
+    <p class="small">As credenciais fornecidas não correspondem a nenhum usuário. Por favor verifique seu usuário e senha.</p>
+    <a class="btn" href="{% url 'logar' %}">Tentar novamente</a>
+    <a class="btn outline" href="{% url 'home' %}">Voltar</a>
+</div>
+{% endblock %}
