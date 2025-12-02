@@ -1,3 +1,0 @@
-name: genos
-env: docker
-dockerfile: Dockerfile
