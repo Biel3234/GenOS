@@ -2,6 +2,6 @@ name: genos
 description: Deploy do projeto GenOS em Django
 version: 1.0.0
 env: python
-start: gunicorn setup.wsgi:application --bind 0.0.0.0:$PORT
 build:
   - pip install -r requirements.txt
+start: gunicorn setup.wsgi:application --bind 0.0.0.0:$PORT
