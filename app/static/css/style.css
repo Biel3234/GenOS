@@ -65,6 +65,37 @@ body {
 .hero p { margin: 0 0 16px 0; color: var(--muted); }
 .actions { margin-top: 16px; }
 
+/* List header (title + search) */
+.list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.list-header h2 { margin: 0; font-size: 20px; line-height: 1; display: flex; align-items: center; height: 34px; }
+.search-form { display: flex; align-items: center; gap:8px; margin:0; }
+.list-header .search-form { margin: 0; }
+.list-header .search-form { transform: translateY(-1px); }
+.search-input {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    min-width: 220px;
+    height: 34px;
+    line-height: 1;
+    box-sizing: border-box;
+    transform: translateY(6px);
+}
+.search-form .btn { height: 34px; display: inline-flex; align-items: center; padding: 0 12px; box-sizing: border-box; }
+.search-btn { padding-left: 8px; padding-right: 8px; width: 40px; justify-content: center; }
+.search-btn .icon-search { display: block; width: 18px; height: 18px; color: var(--black); }
+.search-btn[aria-label] { vertical-align: middle; }
+.card h2 { margin: 0; }
+.sr-only { position: absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); border:0; }
+
 .btn {
     display: inline-block;
     padding: 10px 16px;
@@ -116,4 +147,10 @@ table th, table td { padding:10px; text-align:left; border-bottom:1px solid #eee
 /* reduz padding em telas pequenas para evitar overflow */
 @media (max-width:520px) {
     .pagination .btn { padding:6px 8px; font-size:13px; }
+}
+
+@media (max-width:520px) {
+    .search-input { min-width: 120px; height: 34px; }
+    .search-form .btn { height: 34px; padding: 6px 8px; }
+    .search-btn { width: 36px; }
 }

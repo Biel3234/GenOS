@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse
+from django.db.models import Q
 
 from .models import OrdemServico, User
 from .forms import OsForm
@@ -21,6 +22,18 @@ class ListOS(RequerLogin, ListView):
     template_name = 'list_os.html'
     ordering = ['-id']
     paginate_by = 10
+
+    def get_queryset(self):
+        busca = self.request.GET.get('q')
+        queryset = super().get_queryset()
+
+        if busca:
+            queryset = queryset.filter(
+                Q(cliente__icontains=busca) |
+                Q(placa__icontains=busca)   |
+                Q(moto__icontains=busca) 
+            )
+        return queryset
 
 class CreateOS(RequerLogin, CreateView):
     model = OrdemServico
@@ -83,21 +96,3 @@ def logar(request):
 def deslogar(request):
     logout(request)
     return redirect('logar')
-
-# def registrar(request):
-#     if request.method == "GET":
-#         return render(request, 'register.html')
-#     else:
-#         name = request.POST.get('nome')
-#         password = request.POST.get('senha')
-
-#         user = User.objects.filter(username = name, password = password)
-
-#         if user:
-#             return HttpResponse(render(request, 'usuario_ja_existe.html'))
-#         else:
-#             user = User.objects.create_user(username=name, password= password)
-#             user.save()
-
-#     return redirect('todo:logar')
-         
