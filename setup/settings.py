@@ -1,7 +1,6 @@
 
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +12,7 @@ SECRET_KEY = 'django-insecure-8ebtv@a4g#ldrz&ur3!^8=!r@w3@f8!$25u%@-zpljyp)f^u@z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*", os.environ.get("HOSTNAME")]
+ALLOWED_HOSTS = ['genos.squareweb.app']
 
 
 
