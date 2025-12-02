@@ -1,10 +1,3 @@
 name: genos
-description: Deploy do projeto GenOS em Django
-version: 1.0.0
-
-env: python
-
-build:
-  - pip install -r requirements.txt
-
-start: gunicorn setup.wsgi:application --bind 0.0.0.0:$PORT
+env: docker
+dockerfile: Dockerfile
