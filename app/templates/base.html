@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}GenOS{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'os/logo.png' %}">
     <meta name="theme-color" content="#ff7a00">
 </head>
 <body>
 
     <header class="site-header">
         <div class="container header-inner">
-            <a class="logo" href="{% url 'home' %}">GenOS</a>
+            <a class="logo" href="{% url 'home' %}">
+                <img src="{% static 'os/logo.png' %}" alt="GenOS" class="logo-img">
+            </a>
             <nav class="nav">
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'listar' %}">Ordens</a>

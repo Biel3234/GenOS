@@ -20,7 +20,7 @@
                 <td>{{ os.cliente }} / {{ os.moto }}</td>
                 <td class="small">{{ os.data }}</td>
                 <td class="actions-row">
-                    <a class="btn" href="{% url 'baixar_pdf' os.id %}">PDF</a>
+                    <a class="btn" href="{% url 'baixar_pdf' os.id %}" target="_blank">PDF</a>
                     <a class="btn outline" href="{% url 'detalhar' os.id %}">Ver</a>
                     <a class="btn danger" href="{% url 'deletar' os.id %}">Deletar</a>
                 </td>
@@ -30,5 +30,32 @@
         {% endfor %}
         </tbody>
     </table>
+    {% if is_paginated %}
+    <div class="pagination-wrapper">
+        <nav class="pagination" aria-label="Paginação de ordens">
+            {% if page_obj.has_previous %}
+                <a class="btn outline" href="?page={{ page_obj.previous_page_number }}">&laquo; Anterior</a>
+            {% else %}
+                <span class="btn outline" aria-disabled="true">&laquo; Anterior</span>
+            {% endif %}
+
+            <div class="page-numbers">
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num == page_obj.number %}
+                        <span class="btn active">{{ num }}</span>
+                    {% else %}
+                        <a class="btn" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            {% if page_obj.has_next %}
+                <a class="btn outline" href="?page={{ page_obj.next_page_number }}">Próxima &raquo;</a>
+            {% else %}
+                <span class="btn outline" aria-disabled="true">Próxima &raquo;</span>
+            {% endif %}
+        </nav>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -19,6 +19,8 @@ class ListOS(RequerLogin, ListView):
     model = OrdemServico
     context_object_name = 'ordens'
     template_name = 'list_os.html'
+    ordering = ['-id']
+    paginate_by = 10
 
 class CreateOS(RequerLogin, CreateView):
     model = OrdemServico

@@ -41,9 +41,8 @@ body {
     text-decoration: none;
     font-size: 20px;
 }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-img { height: 36px; width: auto; display: inline-block; }
-.logo-text { font-weight:700; color: var(--orange); font-size: 20px; }
+.logo { display: inline-flex; align-items: center; }
+.logo-img { height: 36px; width: auto; display: block; }
 .nav a {
     color: #fff;
     text-decoration: none;
@@ -99,7 +98,22 @@ button[type="submit"] { margin-top:12px; }
 table { width:100%; border-collapse: collapse; }
 table th, table td { padding:10px; text-align:left; border-bottom:1px solid #eee; }
 
-.actions-row { display:flex; gap:8px; }
+.actions-row { display:flex; gap:8px; align-items:center; flex-wrap:nowrap; }
 .small { font-size:13px; color: var(--muted); }
 
 .site-footer { text-align:center; padding:18px 0; color:var(--muted); }
+
+/* Paginação */
+.pagination-wrapper { display:flex; justify-content:center; margin-top:18px; }
+.pagination { display:flex; align-items:center; gap:10px; flex-wrap:nowrap; white-space:nowrap; }
+.pagination > * { display:inline-flex; align-items:center; }
+.pagination .page-numbers { display:flex; gap:8px; align-items:center; flex-direction:row; }
+.pagination .page-numbers .btn { display:inline-flex; }
+.pagination .btn { padding:8px 12px; font-size:14px; }
+.pagination .btn.active { background: var(--black); color: #fff; border: 2px solid var(--orange); }
+.pagination .btn[aria-disabled="true"] { opacity:0.5; pointer-events:none; }
+
+/* reduz padding em telas pequenas para evitar overflow */
+@media (max-width:520px) {
+    .pagination .btn { padding:6px 8px; font-size:13px; }
+}
