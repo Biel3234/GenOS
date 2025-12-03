@@ -13,7 +13,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['genos.squareweb.app']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://genos.squareweb.app",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
