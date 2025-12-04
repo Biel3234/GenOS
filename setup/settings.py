@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-8ebtv@a4g#ldrz&ur3!^8=!r@w3@f8!$25u%@-zpljyp)f^u@z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['genos.squareweb.app']
+ALLOWED_HOSTS = ['*', 'genos.squareweb.app']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://genos.squareweb.app",
